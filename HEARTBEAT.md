@@ -7,7 +7,7 @@
 ## Context Monitoring
 - Check session context sizes for main and daily agents
 - If context > 60%, warn the user
-- If context > 80%, **auto-run compaction** to free up context
+- If context > 80%, **suggest compaction** to the user (confirm before running)
 
 Commands:
 ```bash
