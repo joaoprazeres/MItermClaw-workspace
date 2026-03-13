@@ -1,6 +1,6 @@
 # OpenClaw Development Progress
 
-**Last Updated:** 2026-03-13 21:08 UTC
+**Last Updated:** 2026-03-13 21:10 UTC
 
 ---
 
@@ -71,6 +71,10 @@
 - [x] Created `context_optimizer.py` script
 - [x] Integrated auto-compaction into HEARTBEAT.md (80% threshold)
 - [x] Added PROGRESS.md to session startup (AGENTS.md)
+- [x] Integrated with agent runtime - Added Pi compaction settings to `openclaw.json`:
+  - `reserveTokens`: 25600 (triggers at 80% instead of 87%)
+  - `keepRecentTokens`: 30000
+  - `maxHistoryShare`: 0.5 (max 50% of context for history)
 
 ---
 
