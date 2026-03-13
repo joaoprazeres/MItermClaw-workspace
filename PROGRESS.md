@@ -1,6 +1,6 @@
 # OpenClaw Development Progress
 
-**Last Updated:** 2026-03-13 20:38 UTC
+**Last Updated:** 2026-03-13 21:08 UTC
 
 ---
 
@@ -15,8 +15,8 @@
 
 | Item | Location | Notes |
 |------|----------|-------|
-| Context optimization | `projects/TODO-context-optimization.md` | Topic-based compaction design |
-| Compaction settings tuning | OpenClaw config | Need to adjust reserveTokens/keepRecentTokens |
+| Context optimization | `scripts/context_optimizer.py` | Auto-compaction script (80% threshold) |
+| Topic-shift detection | `TODO-context-optimization.md` | LLM-based detection pending |
 | Restore plugins section | `openclaw.json` | Missing from damaged config |
 
 ---
@@ -57,10 +57,20 @@
 
 ## 📋 Next Steps
 
-1. **Fix compaction** — Adjust reserveTokens/keepRecentTokens to be less aggressive
-2. **Test topic shift detection** — Implement or tune the trigger
-3. **Restore plugins** — Add web-search plugin from damaged config
-4. **Test memory catch-up** — Verify progress file works after context loss
+### Context Optimization
+- [ ] Integrate with agent runtime for real-time context monitoring
+- [ ] Add LLM-based topic-shift detection using session transcripts
+- [ ] Implement level 2-3 compaction (summarize + purge)
+- [ ] Test auto-compaction via HEARTBEAT
+
+### Other
+- [ ] Restore plugins — Add web-search plugin from damaged config
+- [ ] Test memory catch-up — Verify progress file works after context loss
+
+### Completed This Session
+- [x] Created `context_optimizer.py` script
+- [x] Integrated auto-compaction into HEARTBEAT.md (80% threshold)
+- [x] Added PROGRESS.md to session startup (AGENTS.md)
 
 ---
 
