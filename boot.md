@@ -9,8 +9,6 @@
 
 ### 👑 God Layer (Models)
 1. Local Ollama: minimax-m2.5:cloud (default)
-2. Remote Ollama: phi4-mini:3.8b (fallback)
-3. Local Ollama alt: phi4 (offline)
 
 ### Core Systems
 - **Memory:** 3-layer (Short/Mid/Long) + Named memories

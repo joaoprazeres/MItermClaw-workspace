@@ -4,17 +4,37 @@
 
 # Add tasks below when you want the agent to check something periodically.
 
-## Context Monitoring
-- Check session context sizes for main and daily agents
-- If context > 60%, warn the user
-- If context > 80%, **suggest compaction** to the user (confirm before running)
+## Context Monitoring (HYBRID CONTEXT OPTIMIZER)
 
-Commands:
+**Check frequency:** Every ~10 messages OR every 5 minutes (rotate checks)
+
+### Thresholds:
+- **50%** (64,000 tokens): WARN user
+- **70%** (89,600 tokens): AUTO-ACTION - summarize + archive
+- **80%** (102,400 tokens): Force compaction
+
+### Commands:
 ```bash
+# Quick status check
 python3 ~/openclaw-dev/scripts/context_optimizer.py status
-python3 ~/openclaw-dev/scripts/context_optimizer.py check
+
+# Auto-optimize (hybrid)
+python3 ~/openclaw-dev/scripts/context_optimizer.py check-optimize
+
+# Manual options
+python3 ~/openclaw-dev/scripts/context_optimizer.py summarize main
+python3 ~/openclaw-dev/scripts/context_optimizer.py archive main
 ```
 
-**Auto-compaction threshold:** 80% (102,400 tokens out of 128,000)
+### Auto-Recovery (if session hangs):
+1. Save state to `memory/2026-03-14.md`
+2. Check `memory/summarized/` for last summary
+3. Load last summary and resume from there
+4. If needed, restore from `memory/sessions/archived/`
 
-**Topic-shift detection:** Uses semantic similarity to detect topic changes and trigger appropriate compaction level.
+### Files Created:
+- `memory/summarized/` - Summary archives by date
+- `memory/sessions/archived/` - Full session backups
+
+### Topic-shift Detection:
+Still active - uses semantic similarity to detect topic changes.
