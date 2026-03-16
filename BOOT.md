@@ -15,13 +15,20 @@
 
 | Agent | Workspace | Purpose |
 |-------|-----------|---------|
-| **MItermClaw** 🦔 | `~/.openclaw/workspace/` | Main admin assistant |
-| **DailyClaw** 🔍 | `~/dailyclaw/` | Daily buddy (WhatsApp route) |
-| **DevClaw** 🛠️ | `~/openclaw-dev/` | Development |
+| **MItermClaw** 🦔 | `~/.openclaw/workspace/` | Main admin assistant (TUI/Browser landing) |
+| **DailyClaw** 🔍 | `~/dailyclaw/` | WhatsApp-only (queryable) |
+| **TutorClaw** 📚 | `~/tutor-workspace/` | Learning: Linux, Python, Rust, Go, Docker |
+| **DevClaw** ⚙️ | `~/openclaw-dev/` | Development & OpenClaw docs |
+| **ResearchClaw** 📡 | `~/research-workspace/` | Deep research, web searches, fact-finding |
+
+## Spawnable from MItermClaw
+- `tutorclaw` — for learning tasks
+- `dev` — for OpenClaw config/dev questions
+- `research` — for deep research tasks
 
 ## Channels
-- WebChat ✅ (default)
-- WhatsApp 🔗 → DailyClaw
+- WebChat ✅ (MItermClaw)
+- WhatsApp ✅ (DailyClaw)
 
 ## Key Scripts
 - `~/openclaw-dev/scripts/memory_index.py` - Vector memory

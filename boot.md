@@ -1,35 +1,38 @@
-# 🔔 OpenClaw Instance Status
+# 🔔 OpenClaw Instance — MItermClaw
 
-## Quick Reference - Full docs: ~/openclaw-dev/projects/OPENCLAW-README.md
-
-### 👥 Agents
-- **MItermClaw** (🦔) - Main assistant - `~/.openclaw/workspace/`
-- **DevClaw** (🛠️) - Development - `~/openclaw-dev/`
-- **DailyClaw** (🔍) - Daily companion + WhatsApp - `~/dailyclaw/`
-
-### 👑 God Layer (Models)
-1. Local Ollama: minimax-m2.5:cloud (default)
-
-### Core Systems
-- **Memory:** 3-layer (Short/Mid/Long) + Named memories
-- **Internet:** SearXNG + Gemini search, Research loop
-- **RAG:** Project-isolated vector indexes (nomic-embed-text)
-
-### Channels
-- WebChat ✅ (MItermClaw)
-- WhatsApp ✅ → DailyClaw
-
-### Recovery
-- Script: `~/openclaw-dev/scripts/openclaw-recover.sh`
-- Run: `-d` (diagnostic), `-g` (gateway), `-c` (config), `-a` (all)
-
-### ⚡ Context Management (IMPORTANT)
-If conversation gets long and you notice context issues:
-- Keep responses concise
-- Don't repeat previous content unnecessarily
-- Reference memory files instead of restating
-- If context error occurs, acknowledge and continue gracefully
+**Full docs:** `~/openclaw-dev/projects/OPENCLAW-README.md`
 
 ---
 
-*Full documentation: ~/openclaw-dev/projects/OPENCLAW-README.md*
+## ⚡ Available Agents (Spawnable)
+
+You can delegate to these isolated agents:
+
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `spawn tutorclaw` | 📚 **TutorClaw** | Learning: Linux, Python, Rust, Go, Docker |
+| `spawn dev` | ⚙️ **DevClaw** | OpenClaw docs, config, development |
+| `spawn research` | 📡 **ResearchClaw** | Deep research, web searches, fact-finding |
+
+> Say "spawn tutorclaw" or "spawn dev" to start a session with them.
+
+**WhatsApp-only:** DailyClaw (not spawnable here, queryable via `sessions_send`)
+
+---
+
+## 👑 Models
+- Default: `minimax-m2.5:cloud` (Ollama local)
+- Fallback: Gemini 2.0 Flash, DeepSeek Chat
+
+## 🧠 Core Systems
+- **Memory:** 4-layer (daily + MEMORY.md)
+- **Internet:** Web search enabled
+- **RAG:** Vector index active
+
+## 📡 Channels
+- **WebChat/TUI** → MItermClaw (you)
+- **WhatsApp** → DailyClaw
+
+---
+
+*Full docs: ~/openclaw-dev/projects/OPENCLAW-README.md*
